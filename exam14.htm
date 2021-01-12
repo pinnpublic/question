@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		#main {
+			border: 1px solid black;
+			margin: 0px auto;
+			width: 700px;
+			height: 700px;
+			vertical-align: middle;
+			position: relative;
+			left: 0px;
+			top: 0px;
+		}		
+		#main .ball {
+			background-color: gold;
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			margin: 0px auto;
+			position: absolute;
+			left: 335px;
+			top: 335px;
+			transition: all 1s;
+		}
+		#main .ball:nth-child(1) {
+			background-color: tomato;
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			margin: 0px auto;
+			left: 275px;
+			top: 275px;
+		}
+		#main:hover .ball:nth-child(1) + .ball {
+			transition-duration: 3s;
+			left: 0px;
+			top: 0px;
+			transition-delay: 1s;
+		}
+		#main:hover .ball:nth-child(1) + .ball + .ball {
+			transition-duration: 4s;
+			left: 335px;
+			top: 0px;
+			transition-delay: .5s;
+		}
+		#main:hover .ball:nth-child(1) + .ball + .ball + .ball {
+			transition-duration: 2.5s;
+			left: 670px;
+			top: 0px;
+			transition-delay: 1.3s;
+		}
+		#main:hover .ball:nth-child(1) + .ball + .ball + .ball + .ball {
+			transition-duration: 4.5s;
+			left: 0px;
+			top: 335px;
+			transition-delay: 2s;
+		}
+		#main:hover .ball:nth-child(1) + .ball + .ball + .ball + .ball + .ball {
+			transition-duration: 2.7s;
+			left: 670px;
+			top: 335px;
+			transition-delay: 1.9s;
+		}
+		#main:hover .ball:nth-child(1) + .ball + .ball + .ball + .ball + .ball + .ball {
+			transition-duration: 3.8s;
+			left: 0px;
+			top: 670px;
+			transition-delay: 1.6s;
+		}
+		#main:hover .ball:nth-child(1) + .ball + .ball + .ball + .ball + .ball + .ball + .ball {
+			transition-duration: 2.3s;
+			left: 335px;
+			top: 670px;
+			transition-delay: 1.2s;
+		}
+		#main:hover .ball:nth-child(1) + .ball + .ball + .ball + .ball + .ball + .ball + .ball + .ball {
+			transition-duration: 2.3s;
+			left: 670px;
+			top: 670px;
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 700px; margin: 30px auto;">
+		<h1 style="margin-top: 0px;">transition + transition-duration + position(absolute)</h1>
+		<div style="margin: 20px 0px; border-left: 3px dotted gray; padding-left: 10px;">
+			중심의 공들을 각 방향으로 분산시키시오.
+		</div>
+		<div id="main">
+			<div class="ball"></div>
+			<div class="ball"></div>
+			<div class="ball"></div>
+			<div class="ball"></div>
+			<div class="ball"></div>
+			<div class="ball"></div>
+			<div class="ball"></div>
+			<div class="ball"></div>
+			<div class="ball"></div>
+		</div>
+	</div>
+</body>
+</html>
