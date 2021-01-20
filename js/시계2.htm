@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="basic.css">
+<title></title>
+<style>
+	#clock {
+		width: 700px;
+		height: 700px;
+		border: 1px solid #A9A9A9;
+		position: relative;
+		margin: 100px auto;
+		border-radius: 50%;
+	}
+	#clock img {
+		position: absolute;
+		opacity: .3;
+	}
+	#clock #click {
+		position: absolute;
+		font-size: 4em;
+		color: cornflowerblue;
+		left: 260px;
+		top: 300px;
+		cursor: pointer;
+	}
+</style>
+<script>
+
+	//마우스 오른쪽 버튼 -> 메뉴 보이기 직전에 발생하는 이벤트
+	window.oncontextmenu = function() {
+		event.preventDefault();
+		return false;
+	};
+
+	var list;
+	var index = 0;
+	var timer = 0;
+
+	window.onload = function() {
+
+		list = document.getElementsByTagName("img");
+
+		var angleplus = 0, rad = Math.PI / 180,
+		cx = 700, cy = 700 ,r = 350,		
+		startangle = 240,angle=30,x=0,y=0, endangle = 0;
+
+		for(var i=0; i<12; i++) {
+			endangle = startangle + angle ;
+
+			x = cx + r  * Math.cos(endangle * rad);
+			y = cy + r * Math.sin(endangle * rad);
+
+			 
+			list[i].style.left = x - 64 - 350 + "px";
+			list[i].style.top = y - 64 - 350 + "px";
+
+			startangle = endangle;
+		}
+
+
+
+		timer = setInterval(change, 40);
+
+		document.getElementById("click").onclick = function() {
+			clearInterval(timer);
+			setTimeout(change, 40);
+			setTimeout(change, 100);//20
+			setTimeout(change, 180);//40
+			setTimeout(change, 240);//60
+			setTimeout(change, 320);//80
+			setTimeout(change, 420);//100
+			setTimeout(change, 540);//120
+			setTimeout(change, 680);//140
+			setTimeout(change, 840);//160
+			setTimeout(change, 1060);//180
+			setTimeout(change, 1260);//200
+			setTimeout(function() {
+				document.getElementById("click").innerText = "Done";
+				document.getElementById("click").onclick = null;
+			}, 1260);
+
+		};
+
+	};
+
+
+	function change() {
+			
+		for (var i=0; i<list.length; i++) {
+			list[i].style.opacity = ".3";
+		}
+		list[index].style.opacity = "1";
+		index++;
+		if (index >= list.length) index = 0;
+	}
+	
+</script>
+</head>
+<body>
+	
+	<div id="clock">
+		<img src="../images/catty01.png">
+		<img src="../images/catty02.png">
+		<img src="../images/catty03.png">
+		<img src="../images/catty04.png">
+		<img src="../images/catty05.png">
+		<img src="../images/catty06.png">
+		<img src="../images/catty07.png">
+		<img src="../images/catty08.png">
+		<img src="../images/catty09.png">
+		<img src="../images/catty10.png">
+		<img src="../images/catty11.png">
+		<img src="../images/catty12.png">
+		<div id="click">Click!!</div>
+	</div>
+
+	<div style="text-align: center;">
+	<br><br>
+	<a href="ex13_template.zip">HTML 페이지 소스 다운로드</a><br>
+	</div>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
